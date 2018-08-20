@@ -192,3 +192,36 @@ const verdict = declareMurderer();
 console.log(verdict);
 
 // ###the result is 'Professor Plum'
+
+
+// Extension
+//Episode10
+
+const scenario = {
+  murderer: 'Professor Plum',
+  room: 'kitchen',
+  weapon: 'walking aid'
+};
+const changeMurderer = function() {
+  scenario.murderer = 'Mr. Green';
+  scenario.room = 'garage';
+
+  const plotTwist = function(room) {
+      if (scenario.room === room) {
+        scenario.murderer = 'Colonel Mustard';
+      }
+      const unexpectedOutcome = function(murderer) {
+        if (scenario.murderer !== murderer) {
+          scenario.weapon = 'scissors';
+        }
+      }
+      unexpectedOutcome('Colonel Mustard');
+    }
+  plotTwist("garage");
+}
+const declareMurderer = function() {
+  return `The murderer is ${scenario.weapon}.`;
+}
+changeMurderer();
+const verdict = declareMurderer();
+console.log(verdict);
